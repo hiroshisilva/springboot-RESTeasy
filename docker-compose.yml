@@ -1,0 +1,9 @@
+db:
+  image: mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=test123
+
+micro-services:
+  image: ubuntu
+  links:
+      - db:mysql
