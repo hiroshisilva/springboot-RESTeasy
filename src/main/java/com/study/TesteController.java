@@ -26,6 +26,6 @@ public class TesteController {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        return "";
+        return "Ola";
     }
 }

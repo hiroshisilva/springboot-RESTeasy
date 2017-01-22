@@ -36,7 +36,7 @@ targetCompatibility = 1.8
 
 task buildDocker(type: Docker, dependsOn: build) {
 	push = false
-	applicationName = jar.baseName
+	applicationName = 'base-project'
 	dockerfile = file('src/main/docker/Dockerfile')
 	doFirst {
 		copy {
@@ -45,6 +45,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 		}
 	}
 }
+
 
 repositories {
     mavenCentral()
@@ -64,7 +65,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 
 	//JDBC
-	compile('mysql:mysql-connector-java')
+	compile('mysql:mysql-connector-java:6.0.5')
 
 	//RestEasy
 	compile('org.jboss.resteasy:jaxrs-api:3.0.9.Final')

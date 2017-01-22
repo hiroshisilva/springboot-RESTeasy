@@ -1,9 +1,14 @@
-db:
-  image: mysql
+demo-mysql:
+  image: mysql:latest
   environment:
-    - MYSQL_ROOT_PASSWORD=test123
+    - MYSQL_ROOT_PASSWORD=p4SSW0rd
+    - MYSQL_DATABASE=demo
+    - MYSQL_USER=dbuser
+    - MYSQL_PASSWORD=dbp4ss
 
-micro-services:
-  image: ubuntu
+spring-boot-jpa-docker-webapp:
+  image: g00glen00b/spring-boot-jpa-docker-webapp
   links:
-      - db:mysql
+    - demo-mysql:mysql
+  ports:
+    - 8080:8080
